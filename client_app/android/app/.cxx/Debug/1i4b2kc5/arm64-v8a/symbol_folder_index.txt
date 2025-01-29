@@ -1,0 +1,1 @@
+C:\flutter-prac\vedesh\loginready\client_app\build\app\intermediates\cxx\Debug\1i4b2kc5\obj\arm64-v8a
