@@ -33,7 +33,7 @@ class TabProduct extends StatelessWidget {
                         ),
                   child:Container(
                     padding: EdgeInsets.all(30),
-                    child: Image.asset(
+                    child: Image.network(
                       product.image,
                       fit: BoxFit.fitWidth,
                     ),

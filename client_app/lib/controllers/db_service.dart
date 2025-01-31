@@ -1,3 +1,4 @@
+import 'package:client_app/model/cart_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -126,6 +127,29 @@ class DbService {
         .snapshots();
   }
 
+  Future addToCart({required CartModel cartData}) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection("shop_users")
+          .doc(user!.uid)
+          .collection("cart")
+          .doc(cartData.productId)
+          .update({
+        "product_id": cartData.productId,
+        "quantity": FieldValue.increment(1),
+      });
+    } on FirebaseException catch (e) {
+      if (e.code == "not-found") {
+        await FirebaseFirestore.instance
+            .collection("shop_users")
+            .doc(user!.uid)
+            .collection("cart")
+            .doc(cartData.productId)
+            .set({"product_id": cartData.productId, "quantity": 1});
+      }
+    }
+  }
+  
 
   Future deleteItemFromCart({required String productId}) async {
     await FirebaseFirestore.instance

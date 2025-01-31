@@ -1,10 +1,13 @@
 
 import 'package:client_app/assets.dart';
+import 'package:client_app/model/cart_model.dart';
 import 'package:client_app/model/product.dart';
 import 'package:client_app/pages/productpage.dart';
+import 'package:client_app/providers/cart_provider.dart';
 import 'package:client_app/responsive/responsive_layout.dart';
 import 'package:client_app/responsive/tablet/tab_product.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProductCard extends StatefulWidget {
   final Product product;
@@ -18,7 +21,7 @@ class _ProductCardState extends State<ProductCard> {
   bool isSelected =false;
   @override
   Widget build(BuildContext context) {
-
+    final cartProvider = Provider.of<CartProvider>(context);
     return Container(
       width: MediaQuery.of(context).size.width /2,
       padding: EdgeInsets.all(8),
@@ -49,13 +52,27 @@ class _ProductCardState extends State<ProductCard> {
             children: [
               GestureDetector(
                 onTap: (){
-                  setState(() {
-                    isSelected = !isSelected;
-                  });
+                    // isSelected = !isSelected;
+                    setState(() { 
+                      if (cartProvider.cartUids.contains(widget.product.id)){
+                      cartProvider.removeFromCart(widget.product.id);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Removed from cart")),
+                      );
+                    }else{
+                        cartProvider.addToCart(
+                          CartModel(productId: widget.product.id, quantity: 1),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("Added to cart")),
+                        );  
+                    }
+                    });
+                    
                 },
                 child: Icon(
-                  isSelected? Icons.favorite:Icons.favorite_border_outlined,
-                  color: AppColors.secondary,
+                  cartProvider.cartUids.contains(widget.product.id)? Icons.shopping_cart_rounded:Icons.shopping_cart_outlined,
+                  color:cartProvider.cartUids.contains(widget.product.id)?Colors.redAccent: AppColors.secondary,
                 ),
               ),
             ],

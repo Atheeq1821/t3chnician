@@ -133,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                               if (formKey.currentState!.validate()){
                                 FocusScope.of(context).unfocus();
                                 AuthService()
-                                .loginWithEmail( _emailController.text, _passController.text)
+                                .loginWithEmail("syed@gmail.com", "@Super123")
                                 .then((value){
                                   if (value == "Login Successful"){
                                     print(value);

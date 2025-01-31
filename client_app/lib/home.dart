@@ -1,5 +1,6 @@
 
 import 'package:client_app/assets.dart';
+import 'package:client_app/pages/cartpage.dart';
 import 'package:client_app/pages/homepage.dart';
 import 'package:client_app/pages/profilePage.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class _HomeviewState extends State<Homeview> {
   int curr_index = 0;
     final pages = [
       HomePage(),
-      ProfilePage(),
+      CartPage(),
       ProfilePage()
     ];  
 
@@ -54,3 +55,29 @@ class _HomeviewState extends State<Homeview> {
     );
   }
 }
+
+
+
+  // List<String> userCartProducts(){
+  //   cartUids = [];
+  //   isLoading = true;
+  //   _cartSubscription?.cancel();
+  //   bool output = false;
+  //   _cartSubscription = DbService().readUserCart().listen((snapshot) {
+  //     List<CartModel> cartsData =
+  //         CartModel.fromJsonList(snapshot.docs) as List<CartModel>;
+  //     carts = cartsData;
+
+      
+  //     for (int i = 0; i < carts.length; i++) {
+  //       cartUids.add(carts[i].productId);
+  //       // if(carts[i].productId == currtId){
+  //       //   output =true;
+  //       //   break;
+  //       // } 
+  //     }
+  //     isLoading = false;
+  //     notifyListeners();
+  //   });
+  //   return cartUids;
+  // }
