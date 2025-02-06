@@ -129,21 +129,19 @@ class _LoginPageState extends State<LoginPage> {
                           width: MediaQuery.of(context).size.width * .9,
                           child: ElevatedButton(
                             onPressed: (){
-                              print("pressed login");
                               if (formKey.currentState!.validate()){
                                 FocusScope.of(context).unfocus();
                                 AuthService()
                                 .loginWithEmail("syed@gmail.com", "@Super123")
                                 .then((value){
                                   if (value == "Login Successful"){
-                                    print(value);
                                     ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(content: Text("Login Successful")));
-                                        Navigator.pushReplacement(context
-                                            , MaterialPageRoute(
-                                                builder: (context) => WidgetTree())
-                                            );
-                                    // Navigator.restorablePushNamedAndRemoveUntil(context, "/home" , (route) => false);
+                                        // Navigator.pushReplacement(context
+                                        //     , MaterialPageRoute(
+                                        //         builder: (context) => WidgetTree())
+                                        //     );
+                                    Navigator.restorablePushNamedAndRemoveUntil(context, "/home" , (route) => false);
                                   }
                                   else{
                                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -165,7 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                             style: TextStyle(fontSize: 16)
                             )
                             ),
-                        ),
+                        ), 
                         SizedBox(height: 10,),
                       ],
                     ),

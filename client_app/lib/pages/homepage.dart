@@ -2,12 +2,13 @@ import 'dart:ui';
 
 
 import 'package:client_app/assets.dart';
-import 'package:client_app/home.dart';
+import 'package:client_app/components/location.dart';
+import 'package:client_app/components/promo_container.dart';
 import 'package:client_app/pages/about.dart';
 import 'package:client_app/pages/laptops.dart';
-import 'package:client_app/pages/profilePage.dart';
+import 'package:client_app/responsive/responsive_layout.dart';
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -16,151 +17,137 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final categories = ["All", "Laptops","Desktops","Spares"];
+final categories = ["All", "Laptops","Desktops","Spares"];
   int _selectedCategoryIndex = 0;
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _selectedCategoryIndex = 0;
+  }
+
+
+  @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Welcome",
-            style: Theme.of(context).textTheme.displayMedium,
-            textAlign: TextAlign.start,
-          ),
-          SizedBox(height: 20,),
-          Center(
-            child: SizedBox(
-              height: 190,
-              width: double.infinity,
-              child: Card(
-                elevation: 10,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12)
-                ),
-                
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 10,sigmaY: 10)
-                    )
-                    ),
-              ),
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        appBar: ResponsiveLayout.isPhone(context)?
+          null: 
+          AppBar(
+            automaticallyImplyLeading: false,
+          centerTitle: true,
+          title: Text(
+            "T3chnician",
+            style: GoogleFonts.poppins(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
             ),
-          ),
-          SizedBox(height: 20,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            ),
+        ),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _selectedCategoryIndex = 1;
-                    Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LaptopPage(categoryName: "laptop",titleText: "Choose Your Laptop",)
-                            )
-                        );
-                  });
-                },
+              Text(
+                "Welcome",
+                style: Theme.of(context).textTheme.displayMedium,
+                textAlign: TextAlign.start,
+              ),
+              SizedBox(height: 20,),
+              Center(
+                child: PromoContainer()
+              ),
+              SizedBox(height: 20,),
+              Align(
+                alignment: Alignment.center,
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20,vertical: 18),
+                  // width: double.infinity,
+                  padding: EdgeInsets.symmetric(vertical: 10,horizontal: 18),
                   decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.white,
-                        offset: Offset(-1, -1), // Shadow position
-                        blurRadius: 2, // Shadow blur
-                        spreadRadius: 0.1,
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(12),
-                     gradient: _selectedCategoryIndex==1?AppColors.selectedGradient:  AppColors.diagonalGradient
+                    gradient: AppColors.selectedGradient,
+                    borderRadius: BorderRadius.circular(8)
                   ),
-                  child: Center(
-                    child: Text(categories[1], style: TextStyle(
-                      fontSize: 12,
-                      color: _selectedCategoryIndex==1? AppColors.primary: AppColors.textColor
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text("  Explore Our Shop ",                      
+                      textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                          color: AppColors.primary
+                        )
                       ),
-                      )
+                      SizedBox(width: 5,),
+                      Icon(Icons.arrow_downward,color: AppColors.primary,)
+                    ],
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _selectedCategoryIndex = 2;
-                  });
-                },
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20,vertical: 18),
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.white,
-                        offset: Offset(-1, -1), // Shadow position
-                        blurRadius: 2, // Shadow blur
-                        spreadRadius: 0.1,
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(12),
-                     gradient: _selectedCategoryIndex==2?AppColors.selectedGradient:  AppColors.diagonalGradient
-                  ),
-                  child: Center(
-                    child: Text(categories[2],style: TextStyle(
-                      fontSize: 12,
-                      color: _selectedCategoryIndex==2? AppColors.primary: AppColors.textColor
-                      ),
-                      )
-                  ),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _buildCategoriesRow("laptop", "Choose Your Laptop", 1, "HP"),
+                  _buildCategoriesRow("desktop", "Build Your Dream PC", 2,"HP"),
+                  _buildCategoriesRow("spares", "All spares at one place", 3, "BATTERY"),
+                ],
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _selectedCategoryIndex = 3;
-                    Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LaptopPage(categoryName: "spares",titleText: "All spares at one place",)
-                            )
-                        );
-                  });
-                },
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20,vertical: 18),
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.white,
-                        offset: Offset(-1, -1), // Shadow position
-                        blurRadius: 2, // Shadow blur
-                        spreadRadius: 0.1,
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(12),
-                     gradient: _selectedCategoryIndex==3?AppColors.selectedGradient:  AppColors.diagonalGradient
-                  ),
-                  child: Center(
-                    child: Text(categories[3], style: TextStyle(
-                      fontSize: 12,
-                      color: _selectedCategoryIndex==3? AppColors.primary: AppColors.textColor
-                      ),
-                      )
-                  ),
-                ),
-              ),
+                SizedBox(height: 20,),
+                ResponsiveLayout.isPhone(context)?
+                About():
+                SizedBox.shrink(),
+                MapScreen()
 
             ],
             ),
-            SizedBox(height: 20,),
-            About()
-        ],
         ),
+      ),
     );
+  }
+Widget _buildCategoriesRow(String categoryName, String titleText, int index, String firstSubCategory){
+  return GestureDetector(
+          onTapDown: (_) {
+            setState(() {
+              _selectedCategoryIndex = index;
+              ResponsiveLayout.isPhone(context)
+              ?
+                Navigator.push(
+                  context,                         //"laptop"  "Choose Your Laptop"
+                  MaterialPageRoute(
+                    builder: (context) => LaptopPage(categoryName:categoryName ,titleText: titleText,selectedSub:firstSubCategory )
+                  )
+                )
+              :
+                updateColumnContent('column1',LaptopPage(categoryName:categoryName ,titleText: titleText,selectedSub:firstSubCategory));
+            });
+          },
+          
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 20,vertical: 18),
+            decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white,
+                offset: Offset(-1, -1), // Shadow position
+                blurRadius: 2, // Shadow blur
+                spreadRadius: 0.1,
+              )
+            ],
+            borderRadius: BorderRadius.circular(12),
+            gradient: _selectedCategoryIndex==index?AppColors.selectedGradient:  AppColors.diagonalGradient
+          ),
+          child: Center(
+            child: Text(categories[index], 
+              style:TextStyle(
+                fontSize: 12,
+                color: _selectedCategoryIndex==index? AppColors.primary: AppColors.textColor
+              ),
+            )
+          ),
+        ),
+      );
   }
 }

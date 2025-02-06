@@ -1,18 +1,13 @@
-// import 'package:ecomm/pages/about.dart';
-// import 'package:ecomm/pages/appStart/login.dart';
-// import 'package:ecomm/pages/cartpage.dart';
-// import 'package:ecomm/responsiveness/tablet/about_tab.dart';
-// import 'package:ecomm/responsiveness/tablet/tab_home.dart';
 import 'package:client_app/home.dart';
 import 'package:client_app/pages/about.dart';
 import 'package:client_app/pages/appStart/login.dart';
+import 'package:client_app/pages/homepage.dart';
 import 'package:client_app/responsive/tablet/about_tab.dart';
-import 'package:client_app/responsive/tablet/tab_home.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 final ValueNotifier<Map<String, Widget?>> columnContentNotifier =
     ValueNotifier<Map<String, Widget?>>({
-  "column1": HomeTab(), // Default content for column 1
+  "column1": HomePage(), // Default content for column 1
   "column2": AboutTab(),
   'column3': null ,
   'logincontrol':LoginPage() // Default content for column 2
@@ -27,8 +22,8 @@ void updateColumnContent(String columnKey, Widget newContent) {
     ...columnContentNotifier.value,
     columnKey: newContent,
   };
-   if (columnKey == 'column1' && newContent is Homeview) {
-    updatedValue["column2"] = About();
+   if (columnKey == 'column1' && newContent is HomePage) {
+    updatedValue["column2"] = AboutTab();
   }
   columnContentNotifier.value = updatedValue;
 }

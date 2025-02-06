@@ -8,8 +8,9 @@ import 'package:client_app/model/myproducts.dart';
 import 'package:client_app/model/product.dart';
 import 'package:client_app/model/productcard.dart';
 import 'package:client_app/model/sub_categories_model.dart';
+import 'package:client_app/pages/homepage.dart';
 import 'package:client_app/responsive/responsive_layout.dart';
-import 'package:client_app/responsive/tablet/tab_home.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,7 +18,8 @@ import 'package:google_fonts/google_fonts.dart';
 class LaptopPage extends StatefulWidget {
   final String categoryName;
   final String titleText;
-  const LaptopPage({super.key, required this.categoryName,required this.titleText});
+  final String selectedSub;
+  const LaptopPage({super.key, required this.categoryName,required this.titleText, required this.selectedSub});
 
   @override
   State<LaptopPage> createState() => _LaptopPageState();
@@ -30,12 +32,12 @@ class _LaptopPageState extends State<LaptopPage> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    String? selectedSubCategory = "HP";
+    String? selectedSubCategory = widget.selectedSub;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
             onPressed: (){
-              ResponsiveLayout.isPhone(context)?Navigator.pop(context) : updateColumnContent('column1', HomeTab());
+              ResponsiveLayout.isPhone(context)?Navigator.pop(context) : updateColumnContent('column1', HomePage());
               }, 
             icon: Container(
               padding: EdgeInsets.all(8),
@@ -48,7 +50,7 @@ class _LaptopPageState extends State<LaptopPage> {
         backgroundColor: Colors.transparent,
         forceMaterialTransparency: true,
         elevation: 0, 
-        toolbarHeight: height * 0.1,
+        toolbarHeight: height * 0.1, 
         actions: [
           IconButton(
             iconSize: 35,
@@ -74,18 +76,12 @@ class _LaptopPageState extends State<LaptopPage> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Text(
-              //   "Welcome",
-              //   style: Theme.of(context).textTheme.displayMedium,
-              //   textAlign: TextAlign.start,
-              // ),
-              // SizedBox(height: 20,),
               Center(
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.transparent
                   ),
-                  height:ResponsiveLayout.isPhone(context)? height* 0.3: height*0.4,
+                  height:ResponsiveLayout.isPhone(context)? height* 0.32: height*0.4,
                   width: double.infinity,
                   child: Image.asset(
                     'assets/images/banner.png',

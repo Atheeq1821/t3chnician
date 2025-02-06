@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:client_app/assets.dart';
 import 'package:client_app/pages/appStart/authentication.dart';
 import 'package:client_app/pages/appStart/intro_1.dart';
 import 'package:client_app/pages/appStart/intro_2.dart';
@@ -76,6 +77,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                         },
                         child: Text("Skip",
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: onLastPage?const Color.fromARGB(69, 188, 188, 188):AppColors.textColor,
                             fontSize: 18
                         )
                         ,),

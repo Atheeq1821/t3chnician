@@ -2,7 +2,7 @@
 import 'package:client_app/assets.dart';
 import 'package:client_app/model/cart_model.dart';
 import 'package:client_app/model/product.dart';
-import 'package:client_app/pages/productpage.dart';
+import 'package:client_app/pages/product_page.dart';
 import 'package:client_app/providers/cart_provider.dart';
 import 'package:client_app/responsive/responsive_layout.dart';
 import 'package:client_app/responsive/tablet/tab_product.dart';

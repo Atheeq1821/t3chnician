@@ -1,6 +1,7 @@
 
 import 'package:client_app/pages/about.dart';
 import 'package:client_app/pages/cartpage.dart';
+import 'package:client_app/pages/enquiry.dart';
 import 'package:client_app/pages/profilePage.dart';
 import 'package:client_app/responsive/tablet/topnav.dart';
 import 'package:flutter/material.dart';
@@ -14,13 +15,14 @@ class AboutTab extends StatefulWidget {
 }
 
 class _AboutTabState extends State<AboutTab> {
-  final navigationPages= [About(),CartPage(),CartPage(),ProfilePage()];
+  final navigationPages= [About(),EnquiryPage(),CartPage(),ProfilePage()];
   int currentInd =0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        automaticallyImplyLeading: false,
         title: Row(
           // mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
