@@ -93,7 +93,7 @@ Widget _buildCategoriesRow(String categoryName, String titleText, int index, Str
                 )
               :
                 updateColumnContent('column1',LaptopPage(categoryName:categoryName ,titleText: titleText,selectedSub:firstSubCategory));
-            });
+            }); 
           },
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 20,vertical: 18),

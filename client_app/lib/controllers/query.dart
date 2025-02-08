@@ -18,7 +18,7 @@ Future<String> contactMail(String content) async{
 }
 
 
-
+ 
 Future<String> contactWhatsapp(String content) async{
   String phone = "7397423656";
   String message = Uri.encodeComponent(content);

@@ -9,7 +9,7 @@ class QFormLoader extends StatelessWidget {
   Widget build(BuildContext context) {
     return InAppWebView(
             initialUrlRequest: URLRequest(
-              url: WebUri(formUrl), // Replace with your URL
+              url: WebUri(formUrl), // Replace wit h your URL
             ),
             onLoadStart: (controller, url) {
               CircularProgressIndicator();

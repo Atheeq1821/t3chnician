@@ -1,4 +1,5 @@
 import 'package:client_app/assets.dart';
+import 'package:client_app/components/form_loader.dart';
 import 'package:client_app/controllers/query.dart';
 import 'package:client_app/responsive/responsive_layout.dart';
 import 'package:flutter/material.dart';
@@ -84,7 +85,12 @@ class EnquiryPage extends StatelessWidget {
                 ),
                 SizedBox(height: 10,),
                 TextButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.push(context
+                        , MaterialPageRoute(
+                            builder: (context) => QFormLoader(formUrl:"https://forms.gle/7hFxXajyrnnVy8117"))
+                        );
+                  },
                  child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
@@ -214,12 +220,17 @@ class EnquiryPage extends StatelessWidget {
                 ),
                 Text("   • Attach relevant images if necessary.",
                 style: TextStyle(
-                          fontSize: currW *0.035
+                          fontSize: currW *0.035 
                   ),
                 ),
                 SizedBox(height: 10,),
                 TextButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.push(context
+                        , MaterialPageRoute(
+                            builder: (context) => QFormLoader(formUrl:"https://forms.gle/7hFxXajyrnnVy8117"))
+                        );
+                  },
                  child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),

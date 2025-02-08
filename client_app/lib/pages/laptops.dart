@@ -161,41 +161,7 @@ class _LaptopPageState extends State<LaptopPage> {
                   
                 }
                 ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //   children: categories.map((category){
-              //     final index = categories.indexOf(category);
-              //     return GestureDetector(
-              //       onTap: () {
-              //         setState(() {
-              //           _selectedCategoryIndex = index;
-              //         });
-              //       },
-              //       child: Container(
-              //         padding: EdgeInsets.symmetric(horizontal: 18 ,vertical: 18),
-              //         decoration: BoxDecoration(
-              //           boxShadow: [
-              //             BoxShadow(
-              //               color: Colors.white,
-              //               offset: Offset(-1, -1), // Shadow position
-              //               blurRadius: 2, // Shadow blur
-              //               spreadRadius: 0.1,
-              //             )
-              //           ],
-              //           borderRadius: BorderRadius.circular(12),
-              //            gradient: _selectedCategoryIndex==index?AppColors.selectedGradient:  AppColors.diagonalGradient
-              //         ),
-              //         child: Center(
-              //           child: Text(categories[index], style:Theme.of(context).textTheme.bodyMedium?.copyWith(
-              //             fontSize: 9,
-              //             color: _selectedCategoryIndex==index? AppColors.primary: AppColors.textColor
-              //             ),
-              //             )
-              //         ),
-              //       ),
-              //     );
-              //   }).toList()
-              //   ),
+
                 SizedBox(height:20),
                 SizedBox(
                   child: StreamBuilder(

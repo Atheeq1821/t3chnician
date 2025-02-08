@@ -1,4 +1,5 @@
 import 'package:client_app/assets.dart';
+import 'package:client_app/controllers/query.dart';
 import 'package:client_app/model/product.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -148,7 +149,9 @@ class TabProduct extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: AppColors.secondary
                               ),
-                              onPressed: (){}, 
+                              onPressed: (){
+                                contactWhatsapp("Hey I want to know about this product,\n Product Name - ${product.name} \n Specifications - ${product.processor} \n Price - ${product.newPrice}");
+                              }, 
                               child: Text(
                                 "Buy now",
                                 style: TextStyle(color: AppColors.primary),

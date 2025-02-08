@@ -42,7 +42,7 @@ class _AboutTabState extends State<AboutTab> {
                   currentInd=1;
                 });
               },
-              child: TopNav(name: "Sell",active: currentInd==1?true:false)),
+              child: TopNav(name: "Enquiry",active: currentInd==1?true:false)),
             Spacer(flex: 1,),
             GestureDetector(
               onTap: (){

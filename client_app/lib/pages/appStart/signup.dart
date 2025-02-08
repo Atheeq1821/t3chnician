@@ -1,4 +1,4 @@
-
+import 'package:rive/rive.dart';
 import 'package:client_app/assets.dart';
 import 'package:client_app/controllers/auth_service.dart';
 import 'package:client_app/pages/appStart/login.dart';
@@ -17,6 +17,19 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _phone = TextEditingController();
+  bool isShowLoading = false;
+  late SMITrigger check ;
+  late SMITrigger reset ;
+  late SMITrigger error ;
+
+  StateMachineController getRiveController(Artboard artboard){
+    StateMachineController? controller = 
+      StateMachineController.fromArtboard(artboard, "State Machine 1");
+    artboard.addController(controller!);
+    return controller;
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,27 +120,49 @@ class _SignupPageState extends State<SignupPage> {
                     
                     
                       onPressed: () {
-                         if (formKey.currentState!.validate()) {
-                          AuthService()
-                              .createAccountWithEmail(
-                                _nameController.text,
+                        setState(() {
+                                          isShowLoading =true;
+                        });
+                        Future.delayed(
+                          Duration(seconds: 1),(){
+                            if (formKey.currentState!.validate()) {
+                              AuthService()
+                                .createAccountWithEmail(
+                                  _nameController.text,
                                   _emailController.text, _passwordController.text,_phone.text)
-                              .then((value) {
-                            if (value == "Account Created") {
-                              ScaffoldMessenger.of(context).showSnackBar(
+                                .then((value) {
+                              if (value == "Account Created") {
+                                check.fire();
+                                Future.delayed(Duration(seconds: 2),(){
+                                  Navigator.restorablePushNamedAndRemoveUntil(context, "/home" , (route) => false);
+                                  ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(content: Text("Account Created")));
-                              // Navigator.restorablePushNamedAndRemoveUntil(context, "/home" , (route) => false);
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                content: Text(
+                                }
+                              );
+                            } 
+                            else 
+                            {
+                                error.fire();
+                                Future.delayed(
+                                  Duration(seconds: 2),(){
+                                    setState(() {
+                                      isShowLoading=false;
+                                    });
+                                  }
+                                );
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                  content: Text(
                                   value,
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 backgroundColor: Colors.red.shade400,
                               ));
                             }
-                          });
+                          }
+                          );
+                          } 
                         }
+                      );
                       },
                         style:  ElevatedButton.styleFrom(
                         backgroundColor: AppColors.secondary,
