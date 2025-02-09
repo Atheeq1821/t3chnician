@@ -7,7 +7,8 @@ class AboutCard extends StatelessWidget {
   final String title;
   final String img;
   final String desc;
-  const AboutCard({super.key, required this.title , required this.img, required this.desc});
+  final int index;
+  const AboutCard({super.key, required this.title , required this.img, required this.desc, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,8 @@ class AboutCard extends StatelessWidget {
                         // width: 300,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.3),
+                          color: index==1?Colors.white:Colors.black,
+                          // color: Colors.white.withValues(alpha: 0.3),
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(width: 2,color: Colors.white24)
                           
@@ -36,7 +38,7 @@ class AboutCard extends StatelessWidget {
                                 title,
                                 style:Theme.of(context).textTheme.displaySmall?.copyWith(
                                 fontSize: 16,
-                                color: Colors.white,
+                                color: index==1? AppColors.secondary: Colors.white,
                                 fontWeight: FontWeight.bold
                            )
                                 ),
@@ -56,7 +58,7 @@ class AboutCard extends StatelessWidget {
                                 textAlign: TextAlign.justify,
                                 style:Theme.of(context).textTheme.displaySmall?.copyWith(
                                 fontSize: 15,
-                                color: AppColors.textColor,
+                                color:index==1? AppColors.textColor: Colors.white,
                            )
                                 ),
                             ],

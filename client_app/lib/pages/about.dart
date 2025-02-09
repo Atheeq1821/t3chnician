@@ -60,7 +60,7 @@ class About extends StatelessWidget {
                 textAlign: TextAlign.center,
                  style:Theme.of(context).textTheme.displaySmall?.copyWith(
                   fontSize: 20,
-                  color: Colors.white,
+                  color:  AppColors.secondary,
                   fontWeight: FontWeight.bold
                  )
               ),
@@ -72,9 +72,9 @@ class About extends StatelessWidget {
               crossAxisAlignment:WrapCrossAlignment.center,
               runAlignment: WrapAlignment.spaceAround,
               children: [     
-                  AboutCard(title: "1 DAY SERVICE POLICY", img: "assets/svgs/intro1.svg",desc: "Time is precious, and we value yours! With our 1-Day Service Policy, your requests are completed within a day—guaranteed. Enjoy unmatched speed and efficiency like never before!",),
-                  AboutCard(title: "24/7 Support", img: "assets/svgs/intro2.svg",desc: "We’re here for you 24/7! Our dedicated Support Team is always ready to assist—anytime, anywhere. Get your queries resolved instantly and enjoy seamless service round the clock.",),
-                  AboutCard(title: "Buy and Sell Services", img: "assets/svgs/intro3.svg",desc: "Connect. Trade. Succeed. Buy top-notch services or sell your expertise effortlessly. Our platform ensures a seamless, secure, and user-friendly experience. Start now to grow!",),
+                  AboutCard(title: "1 DAY SERVICE POLICY", img: "assets/svgs/intro1.svg",desc: "Time is precious, and we value yours! With our 1-Day Service Policy, your requests are completed within a day—guaranteed. Enjoy unmatched speed and efficiency like never before!",index: 1,),
+                  AboutCard(title: "24/7 Support", img: "assets/svgs/intro2.svg",desc: "We’re here for you 24/7! Our dedicated Support Team is always ready to assist—anytime, anywhere. Get your queries resolved instantly and enjoy seamless service round the clock.",index: 2,),
+                  AboutCard(title: "Buy and Sell Services", img: "assets/svgs/intro3.svg",desc: "Connect. Trade. Succeed. Buy top-notch services or sell your expertise effortlessly. Our platform ensures a seamless, secure, and user-friendly experience. Start now to grow!",index: 1,),
 
               ],
             ),

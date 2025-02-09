@@ -27,22 +27,35 @@ class _ProductCardState extends State<ProductCard> {
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(13),
-        gradient: AppColors.diagonalGradient,
+        color: AppColors.primary,
+        // gradient: AppColors.diagonalGradient,
         boxShadow: [
-                      BoxShadow(
-                        color: Colors.black,
-                        offset: Offset(1, 1),
-                        blurRadius: 10,
-                        spreadRadius: 0.3,
-                      ),
-                      BoxShadow(
-                        color: const Color.fromARGB(132, 255, 255, 255),
-                        offset: Offset(-1, -1), // Shadow position
-                        blurRadius: 2, // Shadow blur
-                        spreadRadius: 0.1,
-                      ),
+                            BoxShadow(
+                              color: Color(0xFFC9D7E0),
+                              offset: Offset(-4, -4),
+                              blurRadius: 10,
+                            ),
+                            BoxShadow(
+                              color: Color(0xFFA2A7AB),
+                              offset: Offset(4, 4),
+                              blurRadius: 10,
+                            ),
+                          ],
+        // boxShadow: [
+        //               BoxShadow(
+        //                 color: Colors.black,
+        //                 offset: Offset(1, 1),
+        //                 blurRadius: 10,
+        //                 spreadRadius: 0.3,
+        //               ),
+        //               BoxShadow(
+        //                 color: const Color.fromARGB(132, 255, 255, 255),
+        //                 offset: Offset(-1, -1), // Shadow position
+        //                 blurRadius: 2, // Shadow blur
+        //                 spreadRadius: 0.1,
+        //               ),
                       
-        ],
+        // ],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -120,7 +133,7 @@ class _ProductCardState extends State<ProductCard> {
                         );
                       }
                       else{
-                        updateColumnContent('column2', TabProduct(product: widget.product,));
+                        updateColumnContent('colu   mn2', TabProduct(product: widget.product,));
                       }
                       // setState(() {
                       //   Navigator.push(

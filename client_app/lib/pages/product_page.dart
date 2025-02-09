@@ -71,15 +71,15 @@ class ProductPage extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: Color(0xff323B4F),
+                          color: Color(0xffD7E0EB),
                           boxShadow: [
                             BoxShadow(
-                              color: Color(0xFF38445A),
+                              color: Color(0xFFC9D7E0),
                               offset: Offset(-4, -4),
                               blurRadius: 10,
                             ),
                             BoxShadow(
-                              color: Color(0xFF252B39),
+                              color: Color(0xFFA2A7AB),
                               offset: Offset(4, 4),
                               blurRadius: 10,
                             ),

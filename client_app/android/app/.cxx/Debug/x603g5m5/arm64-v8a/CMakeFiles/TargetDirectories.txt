@@ -1,0 +1,2 @@
+C:/flutter-prac/technician/github/t3chnician/client_app/android/app/.cxx/Debug/x603g5m5/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/flutter-prac/technician/github/t3chnician/client_app/android/app/.cxx/Debug/x603g5m5/arm64-v8a/CMakeFiles/rebuild_cache.dir

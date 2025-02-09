@@ -28,17 +28,24 @@ void updateColumnContent(String columnKey, Widget newContent) {
   columnContentNotifier.value = updatedValue;
 }
 
-
+// static const Color gradientStart = Color(0xFF353F54); // #353F54
+//   static const Color gradientEnd = Color(0xFF222834);   // #222834
+//   static const Color secondary = Color(0xFFF2C987);
+//   static const Color third = Color(0xFF997346);
+//   static const Color violetG = Color(0xFF8542fc); 
+//   static const Color blueG = Color(0xFF34b4fe);
+//   static const Color primary = Color(0xFF072638); // #F79D65
+//   static const textColor =Color(0xFFBCBCBC);
 
 class AppColors {
-  static const Color gradientStart = Color(0xFF353F54); // #353F54
-  static const Color gradientEnd = Color(0xFF222834);   // #222834
-  static const Color secondary = Color(0xFFF2C987);
-  static const Color third = Color(0xFF997346);
+  static const Color gradientStart = Color(0xFFD6DEE9); // #353F54
+  static const Color gradientEnd = Color(0xFFC9D7E0);   // #222834
+  static const Color secondary = Color(0xFFFE475A);
+  static const Color third = Color(0xFF741821);
   static const Color violetG = Color(0xFF8542fc); 
   static const Color blueG = Color(0xFF34b4fe);
-  static const Color primary = Color(0xFF072638); // #F79D65
-  static const textColor =Color(0xFFBCBCBC);
+  static const Color primary = Color(0xFFF5F5F7); // #F79D65
+  static const textColor =Color.fromARGB(199, 0, 0, 0);
   static const LinearGradient diagonalGradient = LinearGradient(
     colors: [gradientStart, gradientEnd],
     begin: Alignment.topLeft,

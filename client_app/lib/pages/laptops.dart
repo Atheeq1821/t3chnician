@@ -79,28 +79,15 @@ class _LaptopPageState extends State<LaptopPage> {
               Center(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.transparent
+                    // color: Colors.transparent
                   ),
                   height:ResponsiveLayout.isPhone(context)? height* 0.32: height*0.4,
                   width: double.infinity,
                   child: Image.asset(
                     'assets/images/banner.png',
-                    fit: BoxFit.cover,
+                    fit: BoxFit.contain,
                     ),
                   
-                  // child: Card(
-                  //   elevation: 10,
-                  //   shape: RoundedRectangleBorder(
-                  //     borderRadius: BorderRadius.circular(12)
-                  //   ),
-                    
-                  //   child: ClipRRect(
-                  //     borderRadius: BorderRadius.circular(12),
-                  //     child: BackdropFilter(
-                  //       filter: ImageFilter.blur(sigmaX: 10,sigmaY: 10)
-                  //       )
-                  //       ),
-                  // ),
                 ),
               ),
               SizedBox(height: 20,),

@@ -1,4 +1,5 @@
 
+import 'package:client_app/assets.dart';
 import 'package:flutter/material.dart';
 
 class Start extends StatelessWidget {
@@ -22,7 +23,7 @@ class Start extends StatelessWidget {
                     Text("✨ Best Prices. Trusted Service. ✨",
                     style: Theme.of(context).textTheme.displayMedium?.copyWith(
                       fontSize: 20,
-                      color: Colors.white
+                       
                     ),
                     ),
                     Spacer(flex: 2,),
