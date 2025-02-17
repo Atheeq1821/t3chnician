@@ -21,7 +21,7 @@ class Introduction2 extends StatelessWidget {
           Text("24 / 7 SUPPORT",
             style: Theme.of(context).textTheme.displayMedium?.copyWith(
               fontWeight: FontWeight.w900,
-              color: Colors.white,
+              color: AppColors.secondary,
               fontSize: 25
             ),
           ),

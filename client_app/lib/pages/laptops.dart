@@ -84,7 +84,13 @@ class _LaptopPageState extends State<LaptopPage> {
                   height:ResponsiveLayout.isPhone(context)? height* 0.32: height*0.4,
                   width: double.infinity,
                   child: Image.asset(
-                    'assets/images/banner.png',
+                    widget.categoryName=='laptop'?  
+                      'assets/images/lap-banner.png' :
+                    (widget.categoryName=='desktop'?
+                    'assets/images/pc-banner.gif':
+                    'assets/images/spares-banner.png'
+                    )
+                    ,
                     fit: BoxFit.contain,
                     ),
                   

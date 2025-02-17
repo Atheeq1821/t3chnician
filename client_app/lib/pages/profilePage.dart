@@ -3,6 +3,7 @@ import 'package:client_app/controllers/auth_service.dart';
 import 'package:client_app/pages/update_profile.dart';
 import 'package:client_app/providers/cart_provider.dart';
 import 'package:client_app/providers/user_provider.dart';
+import 'package:client_app/responsive/responsive_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -68,11 +69,30 @@ class _ProfilePageState extends State<ProfilePage> {
             // ),
             Divider(thickness: 1, endIndent: 10, indent: 10),
             ListTile(
-              title: Text("Help & Support",style: TextStyle(fontSize: 20,color: AppColors.textColor),),
-              leading: Icon(Icons.support_agent_rounded,color: AppColors.secondary,),
+              title: Text("Term & Conditions",style: TextStyle(fontSize: 20,color: AppColors.textColor),),
+              leading: Icon(Icons.description_rounded,color: AppColors.secondary,),
               onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Mail us at ecommerce@shop.com")));
+                Navigator.pushNamed(context,"/terms&conditions");
+                // if(ResponsiveLayout.isPhone(context)){
+                //   Navigator.pushNamed(context,"/terms&conditions");
+                // }
+                // else{
+
+                // }
+              },
+            ),
+            Divider(thickness: 1, endIndent: 10, indent: 10),
+            ListTile(
+              title: Text("Privacy policy",style: TextStyle(fontSize: 20,color: AppColors.textColor),),
+              leading: Icon(Icons.privacy_tip_rounded,color: AppColors.secondary,),
+              onTap: () {
+                Navigator.pushNamed(context,"/privacypolicy");
+                // if(ResponsiveLayout.isPhone(context)){
+                //   Navigator.pushNamed(context,"/terms&conditions");
+                // }
+                // else{
+
+                // }
               },
             ),
             Divider(thickness: 1, endIndent: 10, indent: 10),

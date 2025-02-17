@@ -22,7 +22,7 @@ class Introduction1 extends StatelessWidget {
           Text("1 DAY SERVICE POLICY",
             style: Theme.of(context).textTheme.displayMedium?.copyWith(
               fontWeight: FontWeight.w900,
-              color: Colors.white,
+              color: AppColors.secondary,
               fontSize: 25
             ),
           ),

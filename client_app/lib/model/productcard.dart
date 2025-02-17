@@ -133,7 +133,7 @@ class _ProductCardState extends State<ProductCard> {
                         );
                       }
                       else{
-                        updateColumnContent('colu   mn2', TabProduct(product: widget.product,));
+                        updateColumnContent('column2', TabProduct(product: widget.product,));
                       }
                       // setState(() {
                       //   Navigator.push(

@@ -26,13 +26,14 @@ class About extends StatelessWidget {
             SizedBox(height: 10,),
             Container(
               width: double.infinity,
+              // height: ResponsiveLayout.isPhone(context) ? 80: ,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12)
               ),
-              child: ClipRRect(
+              child: ClipRRect( 
                 borderRadius: BorderRadius.circular(12),
                 child: Image.asset(
-                'assets/images/about.png',
+                  "assets/images/about.png",
                 fit: BoxFit.cover
                 ),
               )
@@ -65,7 +66,7 @@ class About extends StatelessWidget {
                  )
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 20,),
             Wrap(
               spacing: 15,
               runSpacing: 15,

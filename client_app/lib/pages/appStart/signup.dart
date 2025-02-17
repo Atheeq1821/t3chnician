@@ -49,7 +49,7 @@ class _SignupPageState extends State<SignupPage> {
                       "Sign Up",
                       style: Theme.of(context).textTheme.displayMedium?.copyWith(
                         fontSize: 24,
-                        color: AppColors.primary,
+                        color: AppColors.secondary,
                         fontWeight: FontWeight.w900
                       ),
                     ),
@@ -68,7 +68,11 @@ class _SignupPageState extends State<SignupPage> {
                         controller: _nameController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: AppColors.secondary, width: 2.0),
+                                ),
                           label: Text("Name"),
+                          floatingLabelStyle: TextStyle(color: AppColors.secondary)
                         ),
                       ),
                     ),
@@ -80,7 +84,11 @@ class _SignupPageState extends State<SignupPage> {
                          controller: _emailController,
                          decoration: InputDecoration(
                             border: OutlineInputBorder(),
+                            focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: AppColors.secondary, width: 2.0),
+                                ),
                             label: Text("Email"),
+                            floatingLabelStyle: TextStyle(color: AppColors.secondary)
                          ),
                       ),
                     ),
@@ -92,7 +100,11 @@ class _SignupPageState extends State<SignupPage> {
                          controller: _phone,
                          decoration: InputDecoration(
                             border: OutlineInputBorder(),
+                            focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: AppColors.secondary, width: 2.0),
+                                ),
                             label: Text("Phone number"),
+                            floatingLabelStyle: TextStyle(color: AppColors.secondary)
                          ),
                       ),
                     )
@@ -109,10 +121,14 @@ class _SignupPageState extends State<SignupPage> {
                     obscureText: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
+                      focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: AppColors.secondary, width: 2.0),
+                                ),
                       label: Text("Password"),
+                      floatingLabelStyle: TextStyle(color: AppColors.secondary)
                     ),
                   )),
-              SizedBox(height: 10,),
+              SizedBox(height: 20,),
               SizedBox(
                   height: 60,
                   width: MediaQuery.of(context).size.width * .9,
@@ -182,7 +198,7 @@ class _SignupPageState extends State<SignupPage> {
                       onPressed: () {
                         updateColumnContent('logincontrol',LoginPage());
                       },
-                      child: Text("Login",style: TextStyle(color: AppColors.primary),))
+                      child: Text("Login",style: TextStyle(color: AppColors.secondary),))
                 ],
               ),
               Spacer(flex: 3,)

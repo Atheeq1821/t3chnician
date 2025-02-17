@@ -7,8 +7,10 @@ import 'package:client_app/pages/appStart/onboard.dart';
 import 'package:client_app/pages/cartpage.dart';
 import 'package:client_app/pages/enquiry.dart';
 import 'package:client_app/pages/laptops.dart';
+import 'package:client_app/pages/policy.dart';
 import 'package:client_app/pages/product_page.dart';
 import 'package:client_app/pages/profilePage.dart';
+import 'package:client_app/pages/tandc.dart';
 import 'package:client_app/providers/cart_provider.dart';
 import 'package:client_app/providers/user_provider.dart';
 import 'package:client_app/responsive/widget_tree.dart';
@@ -79,6 +81,8 @@ class MyApp extends StatelessWidget {
           "/cart":(context)=> CartPage(),
           "/profile":(context)=> ProfilePage(), 
           "/enquiry":(context) => EnquiryPage(),
+          "/terms&conditions":(context) => TermandConditions(),
+          "/privacypolicy":(context) => PrivacyPolicy(),
           // "/specific":(context)=> LaptopPage(categoryName: categoryName, titleText: titleText)
           // "/productPage":(context)=> ProductPage()
 

@@ -6,6 +6,7 @@ import 'package:client_app/pages/appStart/intro_1.dart';
 import 'package:client_app/pages/appStart/intro_2.dart';
 import 'package:client_app/pages/appStart/intro_3.dart';
 import 'package:client_app/pages/appStart/start.dart';
+import 'package:client_app/responsive/responsive_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart' hide Image;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -90,6 +91,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                             context: context, pageBuilder: (context , _,__) => Center(
                             child: Container(
                               height: 620,
+                              width: ResponsiveLayout.isLaptop(context)? 500: double.infinity ,
                               margin: EdgeInsets.symmetric(horizontal: 16),
                               decoration: BoxDecoration(
                                 color: Colors.white,

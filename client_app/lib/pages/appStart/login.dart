@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                         Text("Login",
                         style: Theme.of(context).textTheme.displayMedium?.copyWith(
                           fontSize: 24,
-                          color: AppColors.primary,
+                          color: AppColors.secondary,
                           fontWeight: FontWeight.w900
                         ),),
                         SizedBox(height: 10,),
@@ -69,10 +69,14 @@ class _LoginPageState extends State<LoginPage> {
                               value!.isEmpty ? "Email cannot be empty." : null,
                               controller: _emailController,
                               decoration: InputDecoration(
-                                border: OutlineInputBorder(
-              
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: AppColors.secondary, width: 2.0),
                                 ),
-                                label: Text("Email")
+                                border: OutlineInputBorder(
+                                  
+                                ),
+                                label: Text("Email"),
+                                floatingLabelStyle: TextStyle(color: AppColors.secondary)
                               ),
                             
                           ),
@@ -88,7 +92,11 @@ class _LoginPageState extends State<LoginPage> {
                                   obscureText: true,
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: AppColors.secondary, width: 2.0),
+                                    ),
                                     label: Text("Password"),
+                                    floatingLabelStyle: TextStyle(color: AppColors.secondary)
                                   ),
                                 )
                           ),
@@ -136,11 +144,11 @@ class _LoginPageState extends State<LoginPage> {
                                     );
                                   });
                                 }, 
-                                child: Text("Forget Password",style: TextStyle(color: AppColors.primary),)
+                                child: Text("Forget Password",style: TextStyle(color: AppColors.secondary),)
                                 )
                             ],
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(height: 20,),
                             SizedBox(
                               height: 60,
                               width: MediaQuery.of(context).size.width * .9,
@@ -210,7 +218,7 @@ class _LoginPageState extends State<LoginPage> {
                           onPressed: () {
                             updateColumnContent('logincontrol',SignupPage());
                           },
-                          child: Text("Sign Up",style: TextStyle(color: AppColors.primary),))
+                          child: Text("Sign Up",style: TextStyle(color: AppColors.secondary),))
                     ],
                   ),
                   Spacer(flex: 2,),

@@ -4,6 +4,7 @@ import 'package:client_app/providers/cart_provider.dart';
 import 'package:client_app/responsive/responsive_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:client_app/controllers/query.dart';
 
 class CartContainer extends StatefulWidget {
   final String image, name, productId;
@@ -127,7 +128,9 @@ class _CartContainerState extends State<CartContainer> {
                       ),
                       SizedBox(height: 8,),
                       TextButton(
-                        onPressed:(){}, 
+                        onPressed:(){
+                           contactWhatsapp("Hey I want to know about this product,\n Product Name - ${widget.name} \n Product ID - ${widget.productId} \n Price - ${widget.newPrice}");
+                        }, 
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
@@ -143,7 +146,7 @@ class _CartContainerState extends State<CartContainer> {
                         )
                         ),
                         SizedBox(height: 10,),
-                      
+                       
                     ],
                   ),
                 ),

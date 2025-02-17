@@ -21,7 +21,7 @@ class Introduction3 extends StatelessWidget {
           Text("BUY AND SELL",
             style: Theme.of(context).textTheme.displayMedium?.copyWith(
               fontWeight: FontWeight.w900,
-              color: Colors.white,
+              color: AppColors.secondary,
               fontSize: 25
             ),
           ),
